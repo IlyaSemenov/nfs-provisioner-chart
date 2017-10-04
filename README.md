@@ -18,8 +18,8 @@ In a cloud environment, it may be used to optimize disk usage and IOPS costs. Fo
 ## Installation
 
 ```sh
-helm repo add IlyaSemenov http://ilyasemenov.github.io/helm-charts
-helm install --name nfs-provisioner --namespace nfs-provisioner IlyaSemenov/nfs-provisioner
+helm repo add nfs-provisioner https://raw.githubusercontent.com/IlyaSemenov/nfs-provisioner-chart/master/repo
+helm install --name nfs-provisioner --namespace nfs-provisioner nfs-provisioner/nfs-provisioner
 ```
 
 ## Configuration
