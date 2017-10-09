@@ -2,19 +2,11 @@ apiVersion: v1
 entries:
   nfs-provisioner:
   - apiVersion: v1
-    created: 2017-10-04T17:40:46.144995+07:00
+    created: 2017-10-09T17:50:48.316007+07:00
     description: NFS server with PVC provisioner
     digest: ae3c27bdfdf6cb2ce0a2454d4e014ffe7c229af571fb06221bf8f347e13fdb71
     name: nfs-provisioner
     urls:
     - nfs-provisioner-0.1.1.tgz
     version: 0.1.1
-  - apiVersion: v1
-    created: 2017-10-04T17:40:46.144514+07:00
-    description: NFS server with PVC provisioner
-    digest: b7e3e09bf144a6f70097fe8b3a51c6aaa121beac225bc16db6627e1aecf9b85a
-    name: nfs-provisioner
-    urls:
-    - nfs-provisioner-0.1.0.tgz
-    version: 0.1.0
-generated: 2017-10-04T17:40:46.144142+07:00
+generated: 2017-10-09T17:50:48.31511+07:00
