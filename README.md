@@ -11,9 +11,10 @@ In a cloud environment, it may be used to optimize disk usage and IOPS costs. Fo
 ## Requirements
 
 * Kubernetes 1.6+
-* RBAC enabled
 * PSP not enabled
 * Helm
+
+It is highly recommended that you enable RBAC.
 
 ## Installation
 
@@ -30,6 +31,14 @@ The following defaults are used. You can override them with `--set variable=valu
 
 Default: `quay.io/kubernetes_incubator/nfs-provisioner:v1.0.8`
 
+## `rbac.enabled`
+
+To disable RBAC support, set this to false. It is recommended that you use RBAC
+and leave this enabled. However, you can disable it to create your own RoleBinding
+and Role.
+
+Default: true
+
 ### `provisionerName`
 
 Default: `local.net/nfs`
@@ -40,7 +49,18 @@ Default: `local-nfs`
 
 ### `hostPath`
 
+If this is empty, no local storage will be used, making this completely emphemeral.
+
 Default: `/srv/nfs-provisioner`
+
+### `useTmpfs`
+
+If hostPath is empty and this is set to true, the NFS server will use memory-based
+tmpfs storage instead of allocating disk. This is very fast and very volatile, and
+has the additional risk of consuming cluster memory resources. It will not persist
+across a node restart.
+
+Default: false
 
 ### `defaultClass`
 
@@ -52,7 +72,7 @@ Default: `false`
 
 * [ ] Dynamically name resources (allow to run multiple provisioners simultaneously)
 * [ ] Support storage volume types other than `hostPath` (e.g. other persistent volumes)
-* [ ] Support clusters without RBAC?
+* [X] Support clusters without RBAC?
 * [ ] Support PSP?
 
 PRs are welcome.

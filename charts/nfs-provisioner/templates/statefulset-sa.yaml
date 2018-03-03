@@ -71,5 +71,12 @@ spec:
               mountPath: /export
       volumes:
         - name: export-volume
+{{ if .Values.hostPath }}
           hostPath:
             path: "{{ .Values.hostPath }}"
+{{ else if .Values.useTmpfs }}
+          emptyDir:
+            medium: Memory
+{{ else }}
+          emptyDir: {}
+{{ end }}
