@@ -72,7 +72,6 @@ Default: `false`
 
 * [ ] Dynamically name resources (allow to run multiple provisioners simultaneously)
 * [ ] Support storage volume types other than `hostPath` (e.g. other persistent volumes)
-* [X] Support clusters without RBAC?
 * [ ] Support PSP?
 
 PRs are welcome.
