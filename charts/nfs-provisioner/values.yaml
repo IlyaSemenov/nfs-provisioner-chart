@@ -21,4 +21,3 @@ useTmpfs: false
 # Toggle RBAC on and off
 rbac:
   enabled: true
-
