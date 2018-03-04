@@ -1,6 +1,6 @@
 image: "quay.io/kubernetes_incubator/nfs-provisioner:v1.0.8"
 
-# Seet the provisioner name for the nfs provisioner.
+# Set the provisioner name for the nfs provisioner.
 provisionerName: "local.net/nfs"
 
 # The name of the storage class that will be provided by NFS.
