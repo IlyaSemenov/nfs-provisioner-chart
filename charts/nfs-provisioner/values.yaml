@@ -1,5 +1,23 @@
 image: "quay.io/kubernetes_incubator/nfs-provisioner:v1.0.8"
+
+# Set the provisioner name for the nfs provisioner.
 provisionerName: "local.net/nfs"
+
+# The name of the storage class that will be provided by NFS.
 storageClass: "local-nfs"
-hostPath: "/srv/nfs-provisioner"
+
+# Set the NFS provisioner to be the default storage class.
 defaultClass: false
+
+# If hostPath is empty, no hostPath volume is mounted. Instead, the server
+# is backed by an emptyDir.
+hostPath: "/srv/nfs-provisioner"
+
+# If hostPath is empty and this is true, the emptyDir will mount a tmpfs instead
+# of using local storage. This is vey fast and very volatile, but might be useful
+# for things like caches and temporary workspaces.
+useTmpfs: false
+
+# Toggle RBAC on and off
+rbac:
+  enabled: true
