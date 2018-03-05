@@ -31,13 +31,13 @@ The following defaults are used. You can override them with `--set variable=valu
 
 Default: `quay.io/kubernetes_incubator/nfs-provisioner:v1.0.8`
 
-## `rbac.enabled`
+### `rbac.enabled`
 
 To disable RBAC support, set this to false. It is recommended that you use RBAC
 and leave this enabled. However, you can disable it to create your own RoleBinding
 and Role.
 
-Default: true
+Default: `true`
 
 ### `provisionerName`
 
@@ -60,7 +60,7 @@ tmpfs storage instead of allocating disk. This is very fast and very volatile, a
 has the additional risk of consuming cluster memory resources. It will not persist
 across a node restart.
 
-Default: false
+Default: `false`
 
 ### `defaultClass`
 
