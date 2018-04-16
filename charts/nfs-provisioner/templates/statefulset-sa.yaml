@@ -69,14 +69,31 @@ spec:
           volumeMounts:
             - name: export-volume
               mountPath: /export
+{{- if eq .Values.provisionerVolume.mode "pvc" }}
+  volumeClaimTemplates:
+  - metadata:
+      name: export-volume
+    spec:
+      accessModes:
+        - "ReadWriteOnce"
+      resources:
+        requests:
+          storage: "{{ .Values.provisionerVolume.settings.storageSize | default "1Gi" }}"
+{{- else }}
       volumes:
         - name: export-volume
-{{ if .Values.hostPath }}
+{{- if eq .Values.provisionerVolume.mode "hostPath" }}
           hostPath:
-            path: "{{ .Values.hostPath }}"
-{{ else if .Values.useTmpfs }}
+            path: "{{ .Values.provisionerVolume.settings.path | default "/srv/nfs-provisioner" }}"
+{{ else if eq .Values.provisionerVolume.mode "useTmpFs" }}
           emptyDir:
             medium: Memory
-{{ else }}
+{{ else if eq .Values.provisionerVolume.mode "emptyDir" }}
           emptyDir: {}
 {{ end }}
+
+{{ end }}
+
+
+{{ if .Values.hostPath }}{{ fail "hostPath has been removed. please refer to the README for the migration path" }}{{end}}
+{{ if .Values.useTmpPath }}{{ fail "useTmpPath has been removed. please refer to the README for the migration path" }}{{end}}
