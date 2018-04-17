@@ -43,4 +43,5 @@ rbac:
 provisionerVolume:
   mode: "hostPath"
   settings: {}
-  #   - foo: bar (see available settings for your mode above)
+  # settings:
+  #   foo: bar (see available settings for your mode above)
