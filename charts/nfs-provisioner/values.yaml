@@ -9,15 +9,38 @@ storageClass: "local-nfs"
 # Set the NFS provisioner to be the default storage class.
 defaultClass: false
 
-# If hostPath is empty, no hostPath volume is mounted. Instead, the server
-# is backed by an emptyDir.
-hostPath: "/srv/nfs-provisioner"
-
-# If hostPath is empty and this is true, the emptyDir will mount a tmpfs instead
-# of using local storage. This is vey fast and very volatile, but might be useful
-# for things like caches and temporary workspaces.
-useTmpfs: false
-
 # Toggle RBAC on and off
 rbac:
   enabled: true
+
+# There are serveral modes under which the nfs-provisioner logic can run.
+#
+# hostPath (default):
+#   A hostPath volume mounts a file or directory from the host node’s filesystem into your pod
+#   https://kubernetes.io/docs/concepts/storage/volumes/#hostpath
+#   Available Settings:
+#     - path: /directory/location/on/host (defaults to /srv/nfs-provisioner)
+#
+# tmpFs:
+#   mount a tmpfs (RAM-backed filesystem) instead of using the host node's storage
+#   or a PVC. This is very fast and very volatile, but might be useful for things
+#   like caches and temporary workspaces.
+#   Available Settings:
+#     none
+#
+# emptyDir:
+#   An emptyDir volume is first created when a Pod is assigned to a Node, and
+#   exists as long as that Pod is running on that node.
+#   https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
+#   Available Settings:
+#     none
+#
+# pvc:
+#   Make a Persistent Volume Claim for the nfs-provisioner.
+#   https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+#   Available Settings:
+#     - storageSize: 5Gi (defaults to 1Gi)
+provisionerVolume:
+  mode: "hostPath"
+  settings: {}
+  #   - foo: bar (see available settings for your mode above)
