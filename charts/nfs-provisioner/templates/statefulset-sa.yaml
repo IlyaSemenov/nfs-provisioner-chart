@@ -95,5 +95,5 @@ spec:
 {{ end }}
 
 
-{{ if .Values.hostPath }}{{ fail "hostPath has been removed. please refer to the README for the migration path" }}{{end}}
-{{ if .Values.useTmpPath }}{{ fail "useTmpPath has been removed. please refer to the README for the migration path" }}{{end}}
+{{ if .Values.hostPath }}{{ fail "hostPath has been removed. Please refer to the README for the migration path." }}{{ end }}
+{{ if .Values.useTmpPath }}{{ fail "useTmpPath has been removed. Please refer to the README for the migration path." }}{{ end }}
