@@ -99,7 +99,6 @@ provisionerVolume:
 ## TODO
 
 * [ ] Dynamically name resources (allow to run multiple provisioners simultaneously)
-* [ ] Support storage volume types other than `hostPath` (e.g. other persistent volumes)
 * [ ] Support PSP?
 
 PRs are welcome.
