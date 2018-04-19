@@ -53,10 +53,10 @@ There are a number of modes you can use. These are the available options.
 
 | Mode                 | Description                                                                                                                                                                                       | Available settings                                                         |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| `hostPath` (default) | A hostPath volume mounts a file or directory from the host node’s filesystem into your pod: <https://kubernetes.io/docs/concepts/storage/volumes/#hostpath>                                       | `path`: "/directory/location/on/host" (defaults to `/srv/nfs-provisioner`) |
+| `hostPath` (default) | A hostPath volume mounts a file or directory from the host node’s filesystem into your pod: <https://kubernetes.io/docs/concepts/storage/volumes/#hostpath>                                       | <ul><li> `path`: "/directory/location/on/host" (defaults to `/srv/nfs-provisioner`)</li></ul> |
 | `tmpFs`              | mount a tmpfs (RAM-backed filesystem) instead of using the host node's storage or a PVC. This is very fast and very volatile but might be useful for things like caches and temporary workspaces. | none                                                                       |
 | `emptyDir`           | An emptyDir volume is first created when a Pod is assigned to a Node, and exists as long as that Pod is running on that node: <https://kubernetes.io/docs/concepts/storage/volumes/#emptydir>     | none                                                                       |
-| `pvc`                | Make a Persistent Volume Claim for the nfs-provisioner: <https://kubernetes.io/docs/concepts/storage/persistent-volumes/>                                                                         | `storageSize`: "5Gi" (defaults to 1Gi)                                     |
+| `pvc`                | Make a Persistent Volume Claim for the nfs-provisioner: <https://kubernetes.io/docs/concepts/storage/persistent-volumes/>                                                                         | <ul><li>`storageSize`: "5Gi" (defaults to 1Gi)</li></ul>                                     |
 
 To set a mode, set the `provisionerVolume.mode` value. For instance:
 
