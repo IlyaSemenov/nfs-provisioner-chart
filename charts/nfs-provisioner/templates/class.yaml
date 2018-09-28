@@ -9,4 +9,3 @@ metadata:
 provisioner: "{{ .Values.provisionerName }}"
 parameters:
   mountOptions: "vers=4.1"
-  
