@@ -7,3 +7,6 @@ metadata:
     storageclass.kubernetes.io/is-default-class: "true"
   {{- end }}
 provisioner: "{{ .Values.provisionerName }}"
+parameters:
+  mountOptions: "vers=4.1"
+  
