@@ -2,6 +2,10 @@
 
 This is a Helm chart for [nfs-provisioner](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs).
 
+## DEPRECATION WARNING
+
+This chart is probably deprecated, as there is now official [nfs-server-provisioner](https://github.com/helm/charts/tree/master/stable/nfs-server-provisioner) chart.
+
 ## Reasons to use
 
 To my knowledge, **nfs-provisioner** is the easiest way to deploy a storage provisioner (which fulfills Persistent Volume Claims) on a Kubernetes clusters running on standalone bare metal machine, using local system storage.
